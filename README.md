@@ -13,6 +13,10 @@ This is a demonstration of a sentiment analysis model for Duolingo app reviews, 
 
 The model was trained using the **[Duolingo App User Review Play Store Dataset 2025](https://www.kaggle.com/datasets/belalakhter/duolingo-app-user-review-play-store-dataset-2025)**.
 
+## Model
+
+The fine-tuned model is available on **[kucingmengeong/duolingo-sentiment-analysis-bert](https://huggingface.co/kucingmengeong/duolingo-sentiment-analysis-bert/tree/main)**.
+
 ## Prerequisites
 
 - Python 3.13
