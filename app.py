@@ -70,8 +70,8 @@ def load_model():
     """Load the fine-tuned BERT model and tokenizer."""
     model_path = "model"
     
-    tokenizer = AutoTokenizer.from_pretrained(model_path)
-    model = AutoModelForSequenceClassification.from_pretrained(model_path)
+    tokenizer = AutoTokenizer.from_pretrained(model_path, local_files_only=True, fix_mistral_regex=False)
+    model = AutoModelForSequenceClassification.from_pretrained(model_path, local_files_only=True)
     
     # Set model to evaluation mode
     model.eval()
