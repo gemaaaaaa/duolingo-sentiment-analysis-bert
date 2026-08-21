@@ -150,17 +150,17 @@ def main():
     col1, col2, col3 = st.columns(3)
     
     with col1:
-        if st.button("😊 Positive Example", use_container_width=True):
+        if st.button("😊 Positive Example", width="stretch"):
             st.session_state.review_text = "This app is amazing! It really helps me learn a new language in a fun and interactive way. Highly recommended!"
             st.rerun()
     
     with col2:
-        if st.button("😐 Neutral Example", use_container_width=True):
+        if st.button("😐 Neutral Example", width="stretch"):
             st.session_state.review_text = "The app is okay. Some features are good but there are also things that need improvement."
             st.rerun()
     
     with col3:
-        if st.button("😞 Negative Example", use_container_width=True):
+        if st.button("😞 Negative Example", width="stretch"):
             st.session_state.review_text = "The new AI features ruined the app. It feels less personal and more robotic now. I miss the old Duolingo experience."
             st.rerun()
     
@@ -174,7 +174,7 @@ def main():
         placeholder="This app really helps me learn English in a fun way!"
     )
     
-    if st.button("Analisis Sentimen", type="primary", use_container_width=True):
+    if st.button("Analisis Sentimen", type="primary", width="stretch"):
         if not review_text.strip():
             st.warning("⚠️ Silakan masukkan review terlebih dahulu!")
         else:
