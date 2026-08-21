@@ -1,3 +1,5 @@
+import os
+
 import streamlit as st
 import torch
 from transformers import AutoTokenizer, AutoModelForSequenceClassification
@@ -65,10 +67,13 @@ st.markdown("""
 @st.cache_resource(show_spinner="Loading model... (this might take a moment)")
 def load_model():
     """Load the fine-tuned BERT model and tokenizer."""
-    model_path = "model"
-    
-    tokenizer = AutoTokenizer.from_pretrained(model_path, local_files_only=True, fix_mistral_regex=False)
-    model = AutoModelForSequenceClassification.from_pretrained(model_path, local_files_only=True)
+    hub_model_id = "kucingmengeong/duolingo-sentiment-analysis-bert"
+    local_path = "model"
+    use_local = os.path.isdir(local_path) and os.path.isfile(os.path.join(local_path, "config.json"))
+    model_path = local_path if use_local else hub_model_id
+
+    tokenizer = AutoTokenizer.from_pretrained(model_path, local_files_only=use_local, fix_mistral_regex=False)
+    model = AutoModelForSequenceClassification.from_pretrained(model_path, local_files_only=use_local)
     
     # Set model to evaluation mode
     model.eval()
