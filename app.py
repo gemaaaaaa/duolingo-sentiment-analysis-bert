@@ -55,9 +55,6 @@ st.markdown("""
         font-weight: bold;
         box-shadow: 0 4px 15px rgba(255, 23, 68, 0.3);
     }
-    .confidence-bar {
-        margin-top: 1rem;
-    }
     .stTextArea textarea {
         font-size: 1rem;
     }
@@ -102,14 +99,13 @@ def predict_sentiment(text, tokenizer, model, device):
         logits = outputs.logits
         probabilities = F.softmax(logits, dim=-1)
     
-    # Get predicted class and confidence
+    # Get predicted class
     predicted_class = torch.argmax(probabilities, dim=-1).item()
-    confidence = probabilities[0][predicted_class].item()
     
     # Get all probabilities
     probs = probabilities[0].cpu().numpy()
     
-    return predicted_class, confidence, probs
+    return predicted_class, probs
 
 def get_sentiment_label(class_id, model):
     """Map class ID to sentiment label using model config."""
@@ -193,7 +189,7 @@ def main():
             with st.spinner("Menganalisis sentimen..."):
                 # Get prediction
                 st.markdown("---")
-                predicted_class, confidence, probs = predict_sentiment(
+                predicted_class, probs = predict_sentiment(
                     review_text, tokenizer, model, device
                 )
                 
@@ -214,9 +210,8 @@ def main():
                 
                 # Progress bars for each sentiment
                 labels = ["Negative", "Neutral", "Positive"]
-                colors = ["red", "yellow", "green"]
                 
-                for i, (label, prob) in enumerate(zip(labels, probs)):
+                for label, prob in zip(labels, probs, strict=True):
                     col1, col2 = st.columns([1, 4])
                     with col1:
                         st.write(f"**{label}**")
