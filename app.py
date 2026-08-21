@@ -142,6 +142,9 @@ def main():
     # Initialize session state for review text
     if "review_text" not in st.session_state:
         st.session_state.review_text = ""
+
+    def set_review_text(text):
+        st.session_state.review_text = text
     
     # Input section
     st.subheader("Input Teks Ulasan")
@@ -150,19 +153,28 @@ def main():
     col1, col2, col3 = st.columns(3)
     
     with col1:
-        if st.button("😊 Positive Example", width="stretch"):
-            st.session_state.review_text = "This app is amazing! It really helps me learn a new language in a fun and interactive way. Highly recommended!"
-            st.rerun()
+        st.button(
+            "😊 Positive Example",
+            width="stretch",
+            on_click=set_review_text,
+            args=("This app is amazing! It really helps me learn a new language in a fun and interactive way. Highly recommended!",),
+        )
     
     with col2:
-        if st.button("😐 Neutral Example", width="stretch"):
-            st.session_state.review_text = "The app is okay. Some features are good but there are also things that need improvement."
-            st.rerun()
+        st.button(
+            "😐 Neutral Example",
+            width="stretch",
+            on_click=set_review_text,
+            args=("The app is okay. Some features are good but there are also things that need improvement.",),
+        )
     
     with col3:
-        if st.button("😞 Negative Example", width="stretch"):
-            st.session_state.review_text = "The new AI features ruined the app. It feels less personal and more robotic now. I miss the old Duolingo experience."
-            st.rerun()
+        st.button(
+            "😞 Negative Example",
+            width="stretch",
+            on_click=set_review_text,
+            args=("The new AI features ruined the app. It feels less personal and more robotic now. I miss the old Duolingo experience.",),
+        )
     
     st.markdown("")
     
