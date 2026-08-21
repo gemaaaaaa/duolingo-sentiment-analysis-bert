@@ -68,7 +68,7 @@ st.markdown("""
 @st.cache_resource
 def load_model():
     """Load the fine-tuned BERT model and tokenizer."""
-    model_path = "checkpoint-33750"  # Current directory contains the checkpoint
+    model_path = "model"
     
     tokenizer = AutoTokenizer.from_pretrained(model_path)
     model = AutoModelForSequenceClassification.from_pretrained(model_path)
