@@ -1,6 +1,6 @@
 <h1 align="center">Demo Web Interface<br>Duolingo Review Sentiment Analysis</h1>
 
-This is a demonstration of a sentiment analysis model for Duolingo app reviews, developed for *Kecerdasan Buatan Lanjut* final project. Built using the **BERT (bert-base-multilingual-cased)** architecture, the model was trained on the **Duolingo App User Review Play Store Dataset 2025**, achieving an overall accuracy of **81%**.
+This is a demonstration of a sentiment analysis model for Duolingo app reviews, developed for *Kecerdasan Buatan Lanjut (Advanced Artificial Intelligence)* final project. Built using the **BERT (bert-base-multilingual-cased)** architecture, the model was trained on the **Duolingo App User Review Play Store Dataset 2025**, achieving an overall accuracy of **81%**.
 
 ## Team
 
