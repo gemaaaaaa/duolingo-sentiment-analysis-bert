@@ -65,7 +65,7 @@ st.markdown("""
 """, unsafe_allow_html=True)
 
 # Cache the model loading
-@st.cache_resource
+@st.cache_resource(show_spinner="Loading model... (this might take a moment)")
 def load_model():
     """Load the fine-tuned BERT model and tokenizer."""
     model_path = "model"
@@ -131,13 +131,12 @@ def main():
     st.markdown("---")
     
     # Load model
-    with st.spinner("Loading model... (this might take a moment)"):
-        try:
-            tokenizer, model, device = load_model()
-            st.success(f"✅ Model loaded successfully! (Device: {device})")
-        except Exception as e:
-            st.error(f"❌ Error loading model: {str(e)}")
-            return
+    try:
+        tokenizer, model, device = load_model()
+        st.success(f"✅ Model loaded successfully! (Device: {device})")
+    except Exception as e:
+        st.error(f"❌ Error loading model: {str(e)}")
+        return
     
     st.markdown("---")
     
