@@ -8,3 +8,7 @@ wheels/
 
 # Virtual environments
 .venv
+
+# Model weights (hosted on Hugging Face Hub: kucingmengeong/duolingo-sentiment-analysis-bert)
+model/
+*.zip
