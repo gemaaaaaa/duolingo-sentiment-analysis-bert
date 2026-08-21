@@ -7,7 +7,7 @@ import torch.nn.functional as F
 
 # Page configuration
 st.set_page_config(
-    page_title="Duolingo Review Sentiment Analysis",
+    page_title="BERTBird: Duolingo Sentiment Analysis",
     page_icon="🦉",
     layout="centered"
 )
