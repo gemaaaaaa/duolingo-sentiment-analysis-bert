@@ -111,15 +111,14 @@ def predict_sentiment(text, tokenizer, model, device):
     
     return predicted_class, confidence, probs
 
-def get_sentiment_label(class_id):
-    """Map class ID to sentiment label."""
-    labels = {0: "Negative", 1: "Neutral", 2: "Positive"}
-    return labels.get(class_id, "Unknown")
+def get_sentiment_label(class_id, model):
+    """Map class ID to sentiment label using model config."""
+    return model.config.id2label.get(class_id, model.config.id2label.get(str(class_id), "Unknown"))
 
-def get_sentiment_emoji(class_id):
-    """Map class ID to emoji."""
-    emojis = {0: "😞", 1: "😐", 2: "😊"}
-    return emojis.get(class_id, "❓")
+def get_sentiment_emoji(sentiment_label):
+    """Map sentiment label to emoji."""
+    emojis = {"Negative": "😞", "Neutral": "😐", "Positive": "😊"}
+    return emojis.get(sentiment_label, "❓")
 
 # Main app
 def main():
@@ -186,8 +185,8 @@ def main():
                     review_text, tokenizer, model, device
                 )
                 
-                sentiment_label = get_sentiment_label(predicted_class)
-                sentiment_emoji = get_sentiment_emoji(predicted_class)
+                sentiment_label = get_sentiment_label(predicted_class, model)
+                sentiment_emoji = get_sentiment_emoji(sentiment_label)
                                 
                 # Sentiment card
                 sentiment_class = f"sentiment-{sentiment_label.lower()}"
