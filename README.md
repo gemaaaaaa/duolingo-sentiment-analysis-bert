@@ -35,7 +35,6 @@ The fine-tuned model is available on **[kucingmengeong/duolingo-sentiment-analys
    ```
 
 2. **Install dependencies:**
-   Using `uv`:
    ```bash
    uv sync
    ```
