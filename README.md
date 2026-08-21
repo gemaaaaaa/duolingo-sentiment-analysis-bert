@@ -17,6 +17,10 @@ The model was trained using the **[Duolingo App User Review Play Store Dataset 2
 
 The fine-tuned model is available on **[kucingmengeong/duolingo-sentiment-analysis-bert](https://huggingface.co/kucingmengeong/duolingo-sentiment-analysis-bert/tree/main)**.
 
+## Training Notebook
+
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/1A0qULQJ80tPDns_G5O_ENNegMtAjduao)
+
 ## Prerequisites
 
 - Python 3.13
