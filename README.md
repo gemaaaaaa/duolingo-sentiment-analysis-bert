@@ -16,7 +16,7 @@ The model was trained using the **[Duolingo App User Review Play Store Dataset 2
 ## Prerequisites
 
 - Python 3.13
-- [uv](https://github.com/astral-sh/uv)
+- [uv](https://docs.astral.sh/uv/getting-started/installation/)
 
 ## Installation
 
